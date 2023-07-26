@@ -5,15 +5,11 @@ import yargs from "yargs";
 import hbs from "hbs";
 import Jimp from "jimp";
 import bodyParser from "body-parser";
-import fs from "fs";
-//import multer from "multer";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const argv = yargs(process.argv.slice(2)).argv;
-//const upload = multer({  dest: "public/img",});
-let url = "";
 
 app.set("view engine", "hbs");
 app.use(express.static("public"));
@@ -25,10 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  url = req.body.inputUrl;
-
   try {
-    console.log(url);
     const image = await Jimp.read(req.body.inputUrl);
     const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
     image
@@ -44,7 +37,7 @@ app.post("/", async (req, res) => {
 });
 
 
-//ingresar nodemon app.js --key 123 para que servidor levante
+//Ingresar nodemon app.js --key 123 para que servidor levante
 if (argv.key == "123") {
   app.listen(3000, () => {
     console.log("Servidor corriendo en el puerto 3000");
