@@ -1,24 +1,24 @@
-<form class="row g-3 justify-content-center">
+<form method="post" action="/" class="row g-3 justify-content-center">
   <div class="col-auto">
-    <label for="staticEmail2" class="visually-hidden">Imagen URL</label>
+    <label for="staticEmail2" class="visually-hidden ">Imagen URL</label>
     <input
       type="text"
       readonly
-      class="form-control-plaintext"
-      id="staticEmail2"
+      class="form-control-plaintext  text-white"
+      id="url"
       value="Imagen URL"
     />
   </div>
   <div class="col-auto">
     <label for="inputPassword2" class="visually-hidden">URL</label>
-    <input
+    <input 
       type="text"
       class="form-control"
-      id="inputPassword2"
-      placeholder=""
+      name="inputUrl"
+      placeholder="Ingrese URL imagen"
     />
   </div>
   <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Subir Imagen al servidor</button>
+    <button type="submit" value="Enviar" class="btn btn-primary mb-3">Subir Imagen al servidor</button>
   </div>
 </form>
